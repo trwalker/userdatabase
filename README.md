@@ -2,7 +2,5 @@
 
 TODO:
 
-- Build profile page.
-- Build user profile/information database.
-- Transfer nutrition calculator.
-- Create dialogs.
+- Add to profile page.
+- Build user information database.
