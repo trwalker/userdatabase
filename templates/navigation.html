@@ -1,5 +1,12 @@
-<md-nav-bar id="navigation-bar" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-  <md-nav-item id="nav-home" md-nav-href="#/home" name="home" value="home">Home</md-nav-item>
-  <md-nav-item id="nav-about" md-nav-href="#/about" name="about" value="about">About</md-nav-item>
-  <p id="header-username" class="md-body-1" ng-bind-html="userStatus()"><a href='#/login'>Login/Register</a></p>
-</md-nav-bar>
+<div ng-controller="NavCtrl" ng-cloak="">
+  <md-nav-bar id="navigation-bar" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+    <md-nav-item id="nav-home" md-nav-href="#/home" name="home" value="home">Home</md-nav-item>
+    <md-nav-item id="nav-about" md-nav-href="#/about" name="about" value="about">About</md-nav-item>
+    <md-nav-item id="nav-login" ng-hide="hideLogin" md-nav-href="#/login" name="login" value="login">Login/Register</md-nav-item>
+  </md-nav-bar>
+
+  <md-nav-bar id="navigation-bar2" ng-hide="hideProfile" md-selected-nav-item="currentNavItem" nav-bar-aria-label="sub navigation links">
+    <md-nav-item md-nav-href="#/profile" name="profile" value="profile">Your Profile</md-nav-item>
+    <md-nav-item md-nav-href="#/update" name="update" value="profile">Update Information</md-nav-item>
+  </md-nav-bar>
+</div>

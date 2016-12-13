@@ -6,5 +6,6 @@ app.config(['$routeProvider', function ($routeProvider) {
   .when("/login", {templateUrl: "partials/login.html", controller: "AppCtrl"})
   .when("/register", {templateUrl: "partials/register.html", controller: "AppCtrl"})
   .when("/profile", {templateUrl: "partials/profile.html", controller: "AppCtrl"})
+  .when("/update", {templateUrl: "partials/update.html", controller: "AppCtrl"})
   .otherwise({redirectTo:"/home", template: "partials/home.html", controller: "AppCtrl"});
 }]);

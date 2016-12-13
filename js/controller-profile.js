@@ -39,7 +39,7 @@ app.controller('ProfileCtrl', function($scope, $mdToast) {
       $scope.userDisplayName = user.displayName;
       displayName = $scope.userDisplayName;
 
-      var toastContent = "You've updated your profile "+ displayName +"! Please relog to see updates.";
+      var toastContent = "You've updated your profile "+ displayName +"!";
       showToast(toastContent);
     }, function(error) {
       var errorCode = error.code;

@@ -1,0 +1,13 @@
+<div id="contentWrap" ng-controller="ProfileCtrl" ng-cloak="">
+  <h1 class="md-display-1">Update Information</h1>
+  <p class="md-subhead">Welcome back, {{userDisplayName}}!</p>
+
+  <md-divider></md-divider>
+
+<md-input-container class="md-block">
+  <label>Your Display Name</label>
+  <input ng-model="displayName" type="text">
+</md-input-container>
+
+  <md-button class="md-raised md-primary" ng-click="updateUserData()">Update</md-button>
+</div>

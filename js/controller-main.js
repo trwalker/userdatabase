@@ -1,13 +1,5 @@
 // Primary App Controller
 app.controller('AppCtrl', function($scope, $sce, $mdToast, $document) {
-  // Menu Item Selection
-  var url = document.URL;
-  var array = url.split('/');
-  var pathname = array[array.length-1];
-
-  //console.log("Pathname: "+pathname);
-  $scope.currentNavItem = pathname;
-
   // Toasts
   var toastContent = null;
 
@@ -19,41 +11,6 @@ app.controller('AppCtrl', function($scope, $sce, $mdToast, $document) {
         .hideDelay(3000)
     );
   };
-
-  // Create login link.
-  $scope.snippet = "<a href='#/login'>Login/Register</a>";
-  $scope.userStatus = function() {
-    return $sce.trustAsHtml($scope.snippet);
-  };
-
-  // Firebase State Change
-  auth.onAuthStateChanged(function(user) {
-    // User Information
-    var user = firebase.auth().currentUser;
-
-    if (user) {
-      email = user.email;
-      displayName = user.displayName;
-      uid = user.uid;
-
-      // Update header text with user information.
-      $scope.snippet = "Welcome back, "+ displayName +"!" +
-      " <a href='#/profile'>View Profile</a>";
-      $scope.userStatus = function() {
-        return $sce.trustAsHtml($scope.snippet);
-      };
-
-      //console.log("Provider-specific UID: "+uid);
-      //console.log("Email: "+email);
-    } else {
-
-      // Update header text with login link.
-      $scope.snippet = "<a href='#/login'>Login/Register</a>";
-      $scope.userStatus = function() {
-        return $sce.trustAsHtml($scope.snippet);
-      };
-    }
-  });
 
   // Firebase - Sign Out User
   $scope.signOutUser = function() {
