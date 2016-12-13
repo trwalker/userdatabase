@@ -7,7 +7,14 @@
 <ul>
   <li class="md-body-1">User Email: {{userEmail}}</li>
   <li class="md-body-1">User ID: {{userID}}</li>
+  <li class="md-body-1">User Display Name: {{userDisplayName}}</li>
 </ul>
 
+<md-input-container class="md-block">
+  <label>Your Display Name</label>
+  <input ng-model="displayName" type="text">
+</md-input-container>
+
   <md-button id="button-signOutUser" class="md-raised md-primary" ng-click="signOutUser()">Logout</md-button>
+  <md-button class="md-raised md-primary" ng-click="updateUserData()">Update</md-button>
 </div>

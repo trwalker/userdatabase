@@ -6,11 +6,11 @@ INITIALIZATION
 
 // Firebase Configuration
 var config = {
-  apiKey: "AIzaSyA2_fVDRCKhCJ5QueXY-Xb2CxFFuxY-rdU",
-  authDomain: "user-database-d1a70.firebaseapp.com",
-  databaseURL: "https://user-database-d1a70.firebaseio.com",
-  storageBucket: "user-database-d1a70.appspot.com",
-  messagingSenderId: "528331985076"
+  apiKey: "AIzaSyC3QMg4_g9fIOFNa7aKZuGEGeVj93O8KTQ",
+  authDomain: "user-database-2.firebaseapp.com",
+  databaseURL: "https://user-database-2.firebaseio.com",
+  storageBucket: "user-database-2.appspot.com",
+  messagingSenderId: "948996009406"
 };
 
 // Initialize Firebase
@@ -19,6 +19,6 @@ var database = firebase.database();
 var auth = firebase.auth();
 
 // Initialize AngularJS
-var app = angular.module('FirebaseTest', [
+var app = angular.module('UserDatabase', [
   'ngRoute', 'ngMaterial', 'ngMessages', 'ngSanitize'
 ]);

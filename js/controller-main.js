@@ -28,20 +28,16 @@ app.controller('AppCtrl', function($scope, $sce, $mdToast, $document) {
 
   // Firebase State Change
   auth.onAuthStateChanged(function(user) {
-    // Navigation Links
-    var nutritionLink = document.getElementById('nav-nutrition');
-
     // User Information
     var user = firebase.auth().currentUser;
 
     if (user) {
       email = user.email;
+      displayName = user.displayName;
       uid = user.uid;
 
-      $(nutritionLink).show();
-
       // Update header text with user information.
-      $scope.snippet = "Welcome back, "+ email +"!" +
+      $scope.snippet = "Welcome back, "+ displayName +"!" +
       " <a href='#/profile'>View Profile</a>";
       $scope.userStatus = function() {
         return $sce.trustAsHtml($scope.snippet);
@@ -50,8 +46,6 @@ app.controller('AppCtrl', function($scope, $sce, $mdToast, $document) {
       //console.log("Provider-specific UID: "+uid);
       //console.log("Email: "+email);
     } else {
-
-      $(nutritionLink).hide();
 
       // Update header text with login link.
       $scope.snippet = "<a href='#/login'>Login/Register</a>";
@@ -108,7 +102,7 @@ app.controller('AppCtrl', function($scope, $sce, $mdToast, $document) {
     .then(function () {
       window.location = "#/home";
 
-      var toastContent = "Thanks for signing up "+ email +"!  Reloading page...";
+      var toastContent = "Thanks for signing up "+ email +"!";
       showToast(toastContent);
     })
     .catch(function(error) {
