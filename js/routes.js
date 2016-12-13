@@ -3,8 +3,6 @@ app.config(['$routeProvider', function ($routeProvider) {
   $routeProvider
   .when("/home", {templateUrl: "partials/home.html", controller: "AppCtrl"})
   .when("/about", {templateUrl: "partials/about.html", controller: "AppCtrl"})
-  .when("/faq", {templateUrl: "partials/faq.html", controller: "AppCtrl"})
-  .when("/nutrition", {templateUrl: "partials/nutrition.html", controller: "AppCtrl"})
   .when("/login", {templateUrl: "partials/login.html", controller: "AppCtrl"})
   .when("/register", {templateUrl: "partials/register.html", controller: "AppCtrl"})
   .when("/profile", {templateUrl: "partials/profile.html", controller: "AppCtrl"})
