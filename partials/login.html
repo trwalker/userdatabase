@@ -1,0 +1,21 @@
+<h1 class="md-display-1">Login</h1>
+<p class="md-subhead">Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor...</p>
+
+<form id="login-form" name="loginForm">
+
+<div>
+  <md-input-container class="md-block">
+    <label>Email Address</label>
+    <input ng-model="email" type="email" id="email-input">
+  </md-input-container>
+
+  <md-input-container class="md-block">
+    <label>Password</label>
+    <input ng-model="password" type="password" id="password-input">
+  </md-input-container>
+</div>
+
+<md-button type="submit" id="login-form-submit" class="md-raised md-primary" ng-click="signInUser()">Login</md-button>
+<md-button href="#/register" id="register-account" class="">Create Account</md-button>
+
+</form>
