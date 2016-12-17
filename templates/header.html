@@ -1,4 +1,43 @@
-<header flex layout="row" layout-align="start center">
-  <div id="logo" md-colors="{background: 'grey-200'}"></div>
-  <p id="websiteTitle" class="md-headline" md-colors="{'border-color': 'grey-300'}">User Database Project</p>
-</header>
+<div ng-controller="HeadCtrl" ng-cloak="">
+  <header flex layout="row" layout-align="start center">
+    <i id="logoIcon" class="material-icons">fingerprint</i>
+    <p id="websiteTitle" class="md-headline" md-colors="{'border-color': 'grey-300'}">User Database Project</p>
+
+    <div id="userMenu" layout="row">
+      <p class="md-body-1" ng-bind="userStatus">Logged Out</p>
+      <md-menu md-position-mode="target-right target" >
+        <md-button aria-label="Open User Menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+          <i id="accountIcon" class="material-icons" md-colors="{'color': 'grey-500'}">arrow_drop_down</i>
+        </md-button>
+        <md-menu-content>
+          <md-menu-item ng-hide="hideLogin">
+            <md-button ng-click="loginLink()" href="#/login">
+              <p>Login</p>
+            </md-button>
+          </md-menu-item>
+          <md-menu-item ng-hide="hideCreate">
+            <md-button ng-click="registerLink()" href="#/register">
+              <p>Create Account</p>
+            </md-button>
+          </md-menu-item>
+          <md-menu-item ng-hide="hideProfile">
+            <md-button ng-click="profileLink()" href="#/profile">
+              <p>Your Profile</p>
+            </md-button>
+          </md-menu-item>
+          <md-menu-item ng-hide="hideUpdateProfile">
+            <md-button ng-click="updateLink()" href="#/update">
+              <p>Update Profile</p>
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+    </div>
+  </header>
+
+  <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+    <md-nav-item id="nav-home" md-nav-href="#/home" name="home" value="home">Home</md-nav-item>
+    <md-nav-item id="nav-about" md-nav-href="#/about" name="about" value="about">About</md-nav-item>
+  </md-nav-bar>
+
+</div>
