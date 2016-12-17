@@ -11,23 +11,28 @@
         </md-button>
         <md-menu-content>
           <md-menu-item ng-hide="hideLogin">
-            <md-button ng-click="loginLink()" href="#/login">
+            <md-button ng-click="menuClear()" href="#/login">
               <p>Login</p>
             </md-button>
           </md-menu-item>
           <md-menu-item ng-hide="hideCreate">
-            <md-button ng-click="registerLink()" href="#/register">
+            <md-button ng-click="menuClear()" href="#/register">
               <p>Create Account</p>
             </md-button>
           </md-menu-item>
           <md-menu-item ng-hide="hideProfile">
-            <md-button ng-click="profileLink()" href="#/profile">
+            <md-button ng-click="menuClear()" href="#/profile">
               <p>Your Profile</p>
             </md-button>
           </md-menu-item>
-          <md-menu-item ng-hide="hideUpdateProfile">
-            <md-button ng-click="updateLink()" href="#/update">
-              <p>Update Profile</p>
+          <md-menu-item ng-hide="hideChangeName">
+            <md-button ng-click="menuClear()" href="#/updateName">
+              <p>Change Display Name</p>
+            </md-button>
+          </md-menu-item>
+          <md-menu-item ng-hide="hideLogout">
+            <md-button ng-click="signOutUser()">
+              <p>Logout</p>
             </md-button>
           </md-menu-item>
         </md-menu-content>

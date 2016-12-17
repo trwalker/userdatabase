@@ -1,5 +1,8 @@
 <div id="contentWrap">
-  <h1 class="md-title">Login</h1>
+  <div id="pageHead" layout="row" layout-align="start center">
+    <h1 class="md-title">Login</h1>
+    <md-button type="submit" id="mainBtn" class="md-raised md-primary" ng-click="signInUser()">Login</md-button>
+  </div>
   <p class="md-body-1">Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor...</p>
 
   <div>
@@ -13,8 +16,5 @@
       <input ng-model="password" type="password" id="password-input">
     </md-input-container>
   </div>
-
-  <md-button type="submit" id="login-form-submit" class="md-raised md-primary" ng-click="signInUser()">Login</md-button>
-  <md-button href="#/register" id="register-account" class="">Create Account</md-button>
 
 </div>

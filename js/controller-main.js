@@ -12,21 +12,6 @@ app.controller('AppCtrl', function($scope, $sce, $mdToast, $document) {
     );
   };
 
-  // Firebase - Sign Out User
-  $scope.signOutUser = function() {
-    auth.signOut().then(function() {
-      window.location = "#/home";
-
-      var toastContent = "You are now signed out.";
-      showToast(toastContent);
-    }, function(error) {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-
-      showToast(errorMessage);
-    });
-  }
-
   // Firebase - Sign In User
   $scope.signInUser = function () {
     email = $scope.email;

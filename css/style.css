@@ -15,6 +15,13 @@ md-content {
   margin: 0 auto;
 }
 
+.md-button {
+  min-width: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-shadow: none !important;
+}
+
 #whiteframe {
   margin: 0 auto;
 }
@@ -43,4 +50,12 @@ md-content {
 
 #userMenu md-menu {
   margin-top: 3px;
+}
+
+#pageHead {
+  height: 80px;
+}
+
+#mainBtn {
+  margin: 0 0 0 auto;
 }

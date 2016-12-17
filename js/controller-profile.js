@@ -28,7 +28,7 @@ app.controller('ProfileCtrl', function($scope, $mdToast) {
   });
 
   // Updates the user attributes:
-  $scope.updateUserData = function() {
+  $scope.updateDisplayName = function() {
     // User Information
     var user = firebase.auth().currentUser;
     displayNameInput = $scope.displayName;
@@ -39,7 +39,7 @@ app.controller('ProfileCtrl', function($scope, $mdToast) {
       $scope.userDisplayName = user.displayName;
       displayName = $scope.userDisplayName;
 
-      var toastContent = "You've updated your profile "+ displayName +"!";
+      var toastContent = "You've updated your profile "+ displayName +"! Refresh to see changes.";
       showToast(toastContent);
     }, function(error) {
       var errorCode = error.code;

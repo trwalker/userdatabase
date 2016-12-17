@@ -20,6 +20,21 @@ app.controller('HeadCtrl', function($scope, $mdToast, $document) {
     );
   };
 
+  // Firebase - Sign Out User
+  $scope.signOutUser = function() {
+    auth.signOut().then(function() {
+      window.location = "#/home";
+
+      var toastContent = "You are now signed out.";
+      showToast(toastContent);
+    }, function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+
+      showToast(errorMessage);
+    });
+  }
+
   // Firebase State Change
   auth.onAuthStateChanged(function(user) {
     // User Information
@@ -31,11 +46,17 @@ app.controller('HeadCtrl', function($scope, $mdToast, $document) {
       uid = user.uid;
 
       $scope.currentNavItem = "home";
-      $scope.userStatus = "Welcome back, "+ displayName +"!";
+
+      if (user.displayName == null) {
+        $scope.userStatus = "Welcome, "+ email +"!";
+      } else {
+        $scope.userStatus = "Welcome back, "+ displayName +"!";
+      }
       $scope.hideLogin = true;
       $scope.hideCreate = true;
       $scope.hideProfile = false;
-      $scope.hideUpdateProfile = false;
+      $scope.hideChangeName = false;
+      $scope.hideLogout = false;
 
       //console.log("Provider-specific UID: "+uid);
       //console.log("Email: "+email);
@@ -45,24 +66,13 @@ app.controller('HeadCtrl', function($scope, $mdToast, $document) {
       $scope.hideLogin = false;
       $scope.hideCreate = false;
       $scope.hideProfile = true;
-      $scope.hideUpdateProfile = true;
+      $scope.hideChangeName = true;
+      $scope.hideLogout = true;
     }
   });
 
   // User Menu Actions
-  $scope.loginLink = function () {
-    $scope.currentNavItem = null;
-  }
-
-  $scope.registerLink = function () {
-    $scope.currentNavItem = null;
-  }
-
-  $scope.profileLink = function () {
-    $scope.currentNavItem = null;
-  }
-
-  $scope.updateLink = function () {
+  $scope.menuClear = function () {
     $scope.currentNavItem = null;
   }
 });
