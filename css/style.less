@@ -1,17 +1,19 @@
+@import url("sizes.less");
+
+/* BASE STYLES */
+
 .left { float: left; }
 .right { float: right; }
+
+/* MATERIAL OVERWRITES */
 
 md-toast {
   text-align: center;
 }
 
-header {
-  padding: 24px;
-}
-
 md-content {
-  min-width: 1000px;
-  max-width: 1000px;
+  min-width: @appWidth;
+  max-width: @appWidth;
   margin: 0 auto;
 }
 
@@ -22,12 +24,14 @@ md-content {
   box-shadow: none !important;
 }
 
-#whiteframe {
-  margin: 0 auto;
+/* HEADER */
+
+header {
+  padding: @appPadding;
 }
 
-#contentWrap {
-  padding: 24px;
+#whiteframe {
+  margin: 0 auto;
 }
 
 #logoIcon {
@@ -46,15 +50,23 @@ md-content {
 
 #userMenu {
   margin-left: auto;
+
+  &#userMenu md-menu {
+    margin-top: 3px;
+  }
 }
 
-#userMenu md-menu {
-  margin-top: 3px;
+/* CONTENT AREA */
+
+#contentWrap {
+  padding: @appPadding;
 }
 
 #pageHead {
   height: 80px;
 }
+
+/* BUTTONS */
 
 #mainBtn {
   margin: 0 0 0 auto;
