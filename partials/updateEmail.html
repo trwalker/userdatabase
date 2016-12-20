@@ -1,0 +1,12 @@
+<div id="contentWrap" ng-controller="ProfileCtrl" ng-cloak="">
+  <div id="pageHead" layout="row" layout-align="start center">
+    <h1 class="md-title">Change Email Address</h1>
+    <md-button id="mainBtn" class="md-raised md-primary" ng-click="updateEmail()">Change Email Address</md-button>
+  </div>
+
+  <md-input-container class="md-block">
+    <label>Change your email address from {{userEmail}}...</label>
+    <input ng-model="email" type="text">
+  </md-input-container>
+
+</div>

@@ -52,22 +52,16 @@ app.controller('HeadCtrl', function($scope, $mdToast, $document) {
       } else {
         $scope.userStatus = "Welcome back, "+ displayName +"!";
       }
-      $scope.hideLogin = true;
-      $scope.hideCreate = true;
-      $scope.hideProfile = false;
-      $scope.hideChangeName = false;
-      $scope.hideLogout = false;
+      $scope.isUser = false;
+      $scope.notUser = true;
 
       //console.log("Provider-specific UID: "+uid);
       //console.log("Email: "+email);
     } else {
       $scope.currentNavItem = "home";
       $scope.userStatus = "Logged Out";
-      $scope.hideLogin = false;
-      $scope.hideCreate = false;
-      $scope.hideProfile = true;
-      $scope.hideChangeName = true;
-      $scope.hideLogout = true;
+      $scope.isUser = true;
+      $scope.notUser = false;
     }
   });
 

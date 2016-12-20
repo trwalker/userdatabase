@@ -1,0 +1,11 @@
+<div id="contentWrap" ng-controller="BodyCtrl" ng-cloak="" ng-init='load()'>
+  <div id="pageHead" layout="row" layout-align="start center">
+    <h1 class="md-title">My Body</h1>
+    <md-button id="mainBtn" class="md-raised md-primary" ng-click="updateBody()">Update</md-button>
+  </div>
+  <p ng-bind="displayName"></p>
+  <md-input-container class="md-block">
+    <label>Enter your body weight...</label>
+    <input ng-model="bodyWeight" type="text">
+  </md-input-container>
+</div>

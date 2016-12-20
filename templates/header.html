@@ -10,27 +10,37 @@
           <i id="accountIcon" class="material-icons" md-colors="{'color': 'grey-500'}">arrow_drop_down</i>
         </md-button>
         <md-menu-content>
-          <md-menu-item ng-hide="hideLogin">
+          <md-menu-item ng-hide="notUser">
             <md-button ng-click="menuClear()" href="#/login">
               <p>Login</p>
             </md-button>
           </md-menu-item>
-          <md-menu-item ng-hide="hideCreate">
+          <md-menu-item ng-hide="notUser">
             <md-button ng-click="menuClear()" href="#/register">
               <p>Create Account</p>
             </md-button>
           </md-menu-item>
-          <md-menu-item ng-hide="hideProfile">
+          <md-menu-item ng-hide="isUser">
             <md-button ng-click="menuClear()" href="#/profile">
               <p>Your Profile</p>
             </md-button>
           </md-menu-item>
-          <md-menu-item ng-hide="hideChangeName">
+          <md-menu-item ng-hide="isUser">
             <md-button ng-click="menuClear()" href="#/updateName">
               <p>Change Display Name</p>
             </md-button>
           </md-menu-item>
-          <md-menu-item ng-hide="hideLogout">
+          <md-menu-item ng-hide="isUser">
+            <md-button ng-click="menuClear()" href="#/updateEmail">
+              <p>Change Email Address</p>
+            </md-button>
+          </md-menu-item>
+          <md-menu-item ng-hide="isUser">
+            <md-button ng-click="menuClear()" href="#/updatePassword">
+              <p>Change Password</p>
+            </md-button>
+          </md-menu-item>
+          <md-menu-item ng-hide="isUser">
             <md-button ng-click="signOutUser()">
               <p>Logout</p>
             </md-button>
@@ -43,6 +53,7 @@
   <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
     <md-nav-item id="nav-home" md-nav-href="#/home" name="home" value="home">Home</md-nav-item>
     <md-nav-item id="nav-about" md-nav-href="#/about" name="about" value="about">About</md-nav-item>
+    <md-nav-item id="nav-myBody" md-nav-href="#/myBody" name="myBody" value="myBody" ng-hide="isUser">My Body</md-nav-item>
   </md-nav-bar>
 
 </div>
