@@ -3,9 +3,41 @@
     <h1 class="md-title">{{displayName}}'s Body</h1>
     <md-button id="mainBtn" class="md-raised md-primary" ng-click="updateBody()">Update</md-button>
   </div>
-  <p>You weigh {{userWeight}} lbs. Last updated on {{updated}}.</p>
-  <md-input-container class="md-block">
-    <label>Enter your body weight (in pounds)...</label>
-    <input ng-model="bodyWeight" type="text">
-  </md-input-container>
+
+  <div layout="row">
+    <div flex>
+      <h2 class="md-body-2">Your Information</h2>
+      <p>Last updated on {{updated}}.</p>
+      <ul>
+      <li>Weight: {{userWeight}} lbs.</li>
+      <li>Chest: {{userChest}}"</li>
+      <li>Waist: {{userWaist}}"</li>
+      <li>Hips: {{userHips}}"</li>
+      <li>Body Fat: {{userFat}}%</li>
+      </ul>
+    </div>
+    <div flex>
+      <h2 class="md-body-2">Fields</h2>
+      <md-input-container class="md-block">
+        <label>Enter your body weight (in pounds)...</label>
+        <input ng-model="bodyWeight" type="text">
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label>Enter your chest width (in inches)...</label>
+        <input ng-model="bodyChest" type="text">
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label>Enter your waist width (in inches)...</label>
+        <input ng-model="bodyWaist" type="text">
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label>Enter your hip width (in inches)...</label>
+        <input ng-model="bodyHips" type="text">
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label>Enter your body fat percentage...</label>
+        <input ng-model="bodyFat" type="text">
+      </md-input-container>
+    </div>
+  </div>
 </div>
