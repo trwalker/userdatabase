@@ -1,5 +1,5 @@
 // Primary App Controller
-app.controller('HeadCtrl', function($scope, $mdToast, $document) {
+app.controller('HeadCtrl', function($scope, $mdToast, $document, $timeout) {
   // Menu Item Selection
   var url = document.URL;
   var array = url.split('/');
@@ -40,29 +40,31 @@ app.controller('HeadCtrl', function($scope, $mdToast, $document) {
     // User Information
     var user = firebase.auth().currentUser;
 
-    if (user) {
-      email = user.email;
-      displayName = user.displayName;
-      uid = user.uid;
+    $timeout(function() {
+      if (user) {
+        email = user.email;
+        displayName = user.displayName;
+        uid = user.uid;
 
-      $scope.currentNavItem = "home";
+        $scope.currentNavItem = "home";
 
-      if (user.displayName == null) {
-        $scope.userStatus = "Welcome, "+ email +"!";
+        if (user.displayName == null) {
+          $scope.userStatus = "Welcome, "+ email +"!";
+        } else {
+          $scope.userStatus = "Welcome back, "+ displayName +"!";
+        }
+        $scope.isUser = false;
+        $scope.notUser = true;
+
+        //console.log("Provider-specific UID: "+uid);
+        //console.log("Email: "+email);
       } else {
-        $scope.userStatus = "Welcome back, "+ displayName +"!";
+        $scope.currentNavItem = "home";
+        $scope.userStatus = "Logged Out";
+        $scope.isUser = true;
+        $scope.notUser = false;
       }
-      $scope.isUser = false;
-      $scope.notUser = true;
-
-      //console.log("Provider-specific UID: "+uid);
-      //console.log("Email: "+email);
-    } else {
-      $scope.currentNavItem = "home";
-      $scope.userStatus = "Logged Out";
-      $scope.isUser = true;
-      $scope.notUser = false;
-    }
+    });
   });
 
   // User Menu Actions

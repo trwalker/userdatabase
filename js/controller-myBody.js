@@ -1,5 +1,5 @@
 // My Body Page Controller
-app.controller('BodyCtrl', function($scope, $mdToast, $filter) {
+app.controller('BodyCtrl', function($scope, $mdToast, $filter, $timeout) {
   // Toasts
   var toastContent = null;
 
@@ -37,12 +37,11 @@ app.controller('BodyCtrl', function($scope, $mdToast, $filter) {
   var userId = firebase.auth().currentUser.uid;
 
   database.ref('/users/' + userId).on('value', function(snapshot) {
-
-    console.log(snapshot.val().user);
-    console.log(snapshot.val().weight);
-    console.log(snapshot.val().updated);
-
-    $scope.displayName = snapshot.val().user;
+    $timeout(function() {
+        $scope.displayName = snapshot.val().user;
+        $scope.userWeight = snapshot.val().weight;
+        $scope.updated = snapshot.val().updated;
+    });
   });
 
 });
