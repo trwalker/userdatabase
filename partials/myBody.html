@@ -2,21 +2,34 @@
   <div id="pageHead" layout="row" layout-align="start center">
     <h1 class="md-title">{{displayName}}'s Body</h1>
     <md-button id="mainBtn" class="md-raised md-primary" ng-click="updateBody()">Update</md-button>
+    <md-button ng-disabled="true" class="md-raised md-primary">Add Record</md-button>
   </div>
 
   <div layout="row">
-    <div flex>
-      <h2 class="md-body-2">Your Information</h2>
-      <p>Last updated on {{updated}}.</p>
-      <ul>
-      <li>Weight: {{userWeight}} lbs.</li>
-      <li>Chest: {{userChest}}"</li>
-      <li>Waist: {{userWaist}}"</li>
-      <li>Hips: {{userHips}}"</li>
-      <li>Body Fat: {{userFat}}%</li>
-      </ul>
-    </div>
-    <div flex>
+    <div class="col-left-spacing" flex>
+      <p>The following information is baseline stats which were last updated on {{updated}}.  These should be recorded as your starting point and any progress updates should be entered as a record.</p>
+      <md-list-item class="secondary-button-padding" ng-click="null">
+        <p>Weight: {{userWeight}} lbs.</p>
+        <md-button class="md-secondary" ng-click="">Change</md-button>
+      </md-list-item>
+      <md-list-item class="secondary-button-padding" ng-click="null">
+        <p>Chest: {{userChest}}"</p>
+        <md-button class="md-secondary" ng-click="">Change</md-button>
+      </md-list-item>
+      <md-list-item class="secondary-button-padding" ng-click="null">
+        <p>Waist: {{userWaist}}"</p>
+        <md-button class="md-secondary" ng-click="">Change</md-button>
+      </md-list-item>
+      <md-list-item class="secondary-button-padding" ng-click="null">
+        <p>Hips: {{userHips}}"</p>
+        <md-button class="md-secondary" ng-click="">Change</md-button>
+      </md-list-item>
+      <md-list-item class="secondary-button-padding" ng-click="null">
+        <p>Body Fat: {{userFat}}%</p>
+        <md-button class="md-secondary" ng-click="">Change</md-button>
+      </md-list-item>
+
+      <!--
       <h2 class="md-body-2">Fields</h2>
       <md-input-container class="md-block">
         <label>Enter your body weight (in pounds)...</label>
@@ -38,6 +51,40 @@
         <label>Enter your body fat percentage...</label>
         <input ng-model="bodyFat" type="text">
       </md-input-container>
+    -->
+    </div>
+
+    <div class="col-right-spacing" flex>
+      <p>Add records to keep track of your progress.  It's common for a new record to be created roughly every 3-4 weeks at minimum.<br/><br/></p>
+      <md-whiteframe class="bodyRecord md-whiteframe-1dp"
+                     md-whiteframe="{{height}}"
+                     ng-init="height = 1"
+                     ng-mouseenter="height = 2"
+                     ng-mouseleave="height = 1"
+                     layout="row"
+                     layout-align="start center"
+                     flex
+                     layout-padding>
+        <h3 class="md-body-2">Add Record</h3>
+        <i class="material-icons">keyboard_arrow_right</i>
+      </md-whiteframe>
+      <md-divider id="recordDivider"></md-divider>
+      <md-whiteframe class="bodyRecord md-whiteframe-1dp"
+                     layout="row"
+                     layout-align="start center"
+                     flex
+                     layout-padding>
+        <h3 class="md-body-2">My Second Record</h3>
+        <p class="md-caption">12/29/2016</p>
+      </md-whiteframe>
+      <md-whiteframe class="bodyRecord md-whiteframe-1dp"
+                     layout="row"
+                     layout-align="start center"
+                     flex
+                     layout-padding>
+        <h3 class="md-body-2">My First Record</h3>
+        <p class="md-caption">08/01/2016</p>
+      </md-whiteframe>
     </div>
   </div>
 </div>

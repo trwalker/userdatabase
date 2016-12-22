@@ -4,6 +4,8 @@
 
 .left { float: left; }
 .right { float: right; }
+.col-left-spacing { margin-right: @appSpacing; }
+.col-right-spacing { margin-left: @appSpacing; }
 
 /* MATERIAL OVERWRITES */
 
@@ -19,9 +21,17 @@ md-content {
 
 .md-button {
   min-width: auto;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: @appSpacing;
+  padding-right: @appSpacing;
   box-shadow: none !important;
+}
+
+md-list-item {
+  border-left: 2px solid black;
+
+  p {
+    margin: 0 !important;
+  }
 }
 
 /* HEADER */
@@ -36,7 +46,7 @@ header {
 
 #logoIcon {
   font-size: 32px;
-  margin-right: 16px;
+  margin-right: @appSpacing;
 }
 
 #accountIcon:hover {
@@ -45,7 +55,7 @@ header {
 
 #websiteTitle {
   border-left: 1px solid;
-  padding-left: 16px;
+  padding-left: @appSpacing;
 }
 
 #userMenu {
@@ -78,4 +88,33 @@ header {
 
 #mainBtn {
   margin: 0 0 0 auto;
+}
+
+/* MY BODY PAGE */
+
+.bodyRecord {
+  margin-bottom: @appSpacing;
+  padding: 0 @appSpacing 0 @appSpacing;
+
+  &:first-of-type {
+    margin-bottom: 0;
+  }
+
+  h3 {
+    padding: 0;
+  }
+
+  p {
+    padding: 0;
+    margin: 0 0 0 auto !important;
+  }
+
+  i {
+    margin-left: auto;
+    padding: 0 !important;
+  }
+}
+
+#recordDivider {
+  margin: @appSpacing 0 @appSpacing 0;
 }
