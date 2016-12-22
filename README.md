@@ -8,11 +8,6 @@ TODO:
 - Add validation for input fields.
 - Create a list of users page.
 
-Baseline Statistics:
-
-- Add dialog for baseline stat updates.
-- Add functions for baseline stat updates.
-
 Record Creation:
 
 - Add dialog for record creation.

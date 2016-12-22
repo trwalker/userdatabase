@@ -1,4 +1,5 @@
-<div id="contentWrap" ng-controller="BodyCtrl" ng-cloak="" ng-init='load()'>
+<div id="contentWrap" ng-controller="BodyCtrl" ng-cloak="">
+
   <div id="pageHead" layout="row" layout-align="start center">
     <h1 class="md-title">{{displayName}}'s Body</h1>
     <md-button id="mainBtn" class="md-raised md-primary" ng-click="updateBody()">Update</md-button>
@@ -10,23 +11,23 @@
       <p>The following information is baseline stats which were last updated on {{updated}}.  These should be recorded as your starting point and any progress updates should be entered as a record.</p>
       <md-list-item class="secondary-button-padding" ng-click="null">
         <p>Weight: {{userWeight}} lbs.</p>
-        <md-button class="md-secondary" ng-click="">Change</md-button>
+        <md-button class="md-secondary" ng-click="updateWeight($event)">Change</md-button>
       </md-list-item>
       <md-list-item class="secondary-button-padding" ng-click="null">
         <p>Chest: {{userChest}}"</p>
-        <md-button class="md-secondary" ng-click="">Change</md-button>
+        <md-button class="md-secondary" ng-click="updateChest($event)">Change</md-button>
       </md-list-item>
       <md-list-item class="secondary-button-padding" ng-click="null">
         <p>Waist: {{userWaist}}"</p>
-        <md-button class="md-secondary" ng-click="">Change</md-button>
+        <md-button class="md-secondary" ng-click="updateWaist($event)">Change</md-button>
       </md-list-item>
       <md-list-item class="secondary-button-padding" ng-click="null">
         <p>Hips: {{userHips}}"</p>
-        <md-button class="md-secondary" ng-click="">Change</md-button>
+        <md-button class="md-secondary" ng-click="updateHips($event)">Change</md-button>
       </md-list-item>
       <md-list-item class="secondary-button-padding" ng-click="null">
         <p>Body Fat: {{userFat}}%</p>
-        <md-button class="md-secondary" ng-click="">Change</md-button>
+        <md-button class="md-secondary" ng-click="updateFat($event)">Change</md-button>
       </md-list-item>
 
       <!--
