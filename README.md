@@ -8,13 +8,17 @@ TODO:
 - Add validation for input fields.
 - Create a list of users page.
 
-// My Body Page
+Baseline Statistics:
 
 - Add dialog for baseline stat updates.
 - Add functions for baseline stat updates.
 
+Record Creation:
+
 - Add dialog for record creation.
 - Add function to create multiple records.
+
+Record Viewing:
 
 - Add dialog to view records.
 - Add function to generate list of records UI.
