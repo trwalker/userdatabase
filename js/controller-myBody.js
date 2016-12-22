@@ -16,9 +16,9 @@ app.controller('BodyCtrl', function($scope, $mdToast, $filter, $timeout, $mdDial
     );
   };
 
-  database.ref('/users/' + userId).on('value', function(snapshot) {
+  database.ref('/users/' + userId +'/records/REC1').on('value', function(snapshot) {
     $timeout(function() {
-        $scope.displayName = snapshot.val().user;
+        $scope.displayName = user.displayName;
         $scope.userWeight = snapshot.val().weight;
         $scope.userChest = snapshot.val().chest;
         $scope.userWaist = snapshot.val().waist;
@@ -27,6 +27,81 @@ app.controller('BodyCtrl', function($scope, $mdToast, $filter, $timeout, $mdDial
         $scope.updated = snapshot.val().updated;
     });
   });
+
+  // Add new record.
+  $scope.addRecord = function($event) {
+     var parentEl = angular.element(document.body);
+     var recordID = firebase.database().ref().push().key;
+     $mdDialog.show({
+       parent: parentEl,
+       targetEvent: $event,
+       template:
+         '<md-dialog id="recordDialog" aria-label="List dialog">' +
+         '  <md-dialog-content class="md-dialog-content">'+
+         '    <h2 class="md-title ng-binding">Add New Record</h2>' +
+         '    <p class="ng-binding">Enter your information below.</p>' +
+         '    <md-input-container class="md-block">' +
+         '      <label>Enter your body weight (in pounds)...</label>' +
+         '      <input ng-model="recordWeight" type="text">' +
+         '    </md-input-container>' +
+         '    <md-input-container class="md-block">' +
+         '      <label>Enter your chest width (in inches)...</label>' +
+         '      <input ng-model="recordChest" type="text">' +
+         '    </md-input-container>' +
+         '    <md-input-container class="md-block">' +
+         '      <label>Enter your waist width (in inches)...</label>' +
+         '      <input ng-model="recordWaist" type="text">' +
+         '    </md-input-container>' +
+         '    <md-input-container class="md-block">' +
+         '      <label>Enter your hip width (in inches)...</label>' +
+         '      <input ng-model="recordHip" type="text">' +
+         '    </md-input-container>' +
+         '    <md-input-container class="md-block">' +
+         '      <label>Enter your body fat percentage...</label>' +
+         '      <input ng-model="recordFat" type="text">' +
+         '    </md-input-container>' +
+         '  </md-dialog-content>' +
+         '  <md-dialog-actions>' +
+         '    <md-button ng-click="closeDialog()" class="md-primary">' +
+         '      Cancel' +
+         '    </md-button>' +
+         '    <md-button ng-click="createRecord()" class="md-primary">' +
+         '      Add Record' +
+         '    </md-button>' +
+         '  </md-dialog-actions>' +
+         '</md-dialog>',
+       locals: {
+         weight: $scope.recordWeight,
+         chest: $scope.recordChest,
+         waist: $scope.recordWaist,
+         hips: $scope.recordHip,
+         fat: $scope.recordFat
+       },
+       controller: DialogController
+    });
+    function DialogController($scope, $mdDialog) {
+      var chest = "1";
+      var waist = "1";
+      var hips = "1";
+      var fat = "1";
+
+      $scope.closeDialog = function() {
+        $mdDialog.hide();
+      }
+      $scope.createRecord = function() {
+        database.ref('users/' + userId + '/records/' + recordID).set({
+          weight: $scope.recordWeight,
+          chest: $scope.recordChest,
+          waist: $scope.recordWaist,
+          hips: $scope.recordHip,
+          fat: $scope.recordFat,
+          updated: currentDate
+        });
+        $mdDialog.hide();
+        showToast("Your record has been added!");
+      }
+    }
+  }
 
   // Update base weight.
   $scope.updateWeight = function(ev) {
@@ -44,7 +119,7 @@ app.controller('BodyCtrl', function($scope, $mdToast, $filter, $timeout, $mdDial
         // Add database entry.
         weight = result;
 
-        database.ref('users/' + userId).update({
+        database.ref('users/' + userId + '/records/REC1').update({
           weight: weight,
           updated: currentDate
         });
@@ -70,7 +145,7 @@ app.controller('BodyCtrl', function($scope, $mdToast, $filter, $timeout, $mdDial
         // Add database entry.
         chest = result;
 
-        database.ref('users/' + userId).update({
+        database.ref('users/' + userId +'/records/REC1').update({
           chest: chest,
           updated: currentDate
         });
@@ -96,7 +171,7 @@ app.controller('BodyCtrl', function($scope, $mdToast, $filter, $timeout, $mdDial
         // Add database entry.
         waist = result;
 
-        database.ref('users/' + userId).update({
+        database.ref('users/' + userId +'/records/REC1').update({
           waist: waist,
           updated: currentDate
         });
@@ -122,7 +197,7 @@ app.controller('BodyCtrl', function($scope, $mdToast, $filter, $timeout, $mdDial
         // Add database entry.
         hips = result;
 
-        database.ref('users/' + userId).update({
+        database.ref('users/' + userId +'/records/REC1').update({
           hips: hips,
           updated: currentDate
         });
@@ -148,7 +223,7 @@ app.controller('BodyCtrl', function($scope, $mdToast, $filter, $timeout, $mdDial
         // Add database entry.
         fat = result;
 
-        database.ref('users/' + userId).update({
+        database.ref('users/' + userId +'/records/REC1').update({
           fat: fat,
           updated: currentDate
         });

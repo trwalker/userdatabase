@@ -10,8 +10,8 @@ TODO:
 
 Record Creation:
 
-- Add dialog for record creation.
-- Add function to create multiple records.
+- Add record names.
+- Move creation to a button.
 
 Record Viewing:
 

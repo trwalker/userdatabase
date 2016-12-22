@@ -2,8 +2,6 @@
 
   <div id="pageHead" layout="row" layout-align="start center">
     <h1 class="md-title">{{displayName}}'s Body</h1>
-    <md-button id="mainBtn" class="md-raised md-primary" ng-click="updateBody()">Update</md-button>
-    <md-button ng-disabled="true" class="md-raised md-primary">Add Record</md-button>
   </div>
 
   <div layout="row">
@@ -62,6 +60,7 @@
                      ng-init="height = 1"
                      ng-mouseenter="height = 2"
                      ng-mouseleave="height = 1"
+                     ng-click="addRecord($event)"
                      layout="row"
                      layout-align="start center"
                      flex
