@@ -8,14 +8,9 @@ TODO:
 - Add validation for input fields.
 - Create a list of users page.
 
-Record Creation:
-
-- Add record names.
-- Move creation to a button.
-
 Record Viewing:
 
 - Add dialog to view records.
-- Add function to generate list of records UI.
 - Add function to edit record.
 - Add function to remove record.
+- Add record hover/click effects.

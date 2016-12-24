@@ -2,6 +2,7 @@
 
   <div id="pageHead" layout="row" layout-align="start center">
     <h1 class="md-title">{{displayName}}'s Body</h1>
+    <md-button id="mainBtn" class="md-raised md-primary" ng-click="addRecord($event)">Add Record</md-button>
   </div>
 
   <div layout="row">
@@ -27,63 +28,19 @@
         <p>Body Fat: {{userFat}}%</p>
         <md-button class="md-secondary" ng-click="updateFat($event)">Change</md-button>
       </md-list-item>
-
-      <!--
-      <h2 class="md-body-2">Fields</h2>
-      <md-input-container class="md-block">
-        <label>Enter your body weight (in pounds)...</label>
-        <input ng-model="bodyWeight" type="text">
-      </md-input-container>
-      <md-input-container class="md-block">
-        <label>Enter your chest width (in inches)...</label>
-        <input ng-model="bodyChest" type="text">
-      </md-input-container>
-      <md-input-container class="md-block">
-        <label>Enter your waist width (in inches)...</label>
-        <input ng-model="bodyWaist" type="text">
-      </md-input-container>
-      <md-input-container class="md-block">
-        <label>Enter your hip width (in inches)...</label>
-        <input ng-model="bodyHips" type="text">
-      </md-input-container>
-      <md-input-container class="md-block">
-        <label>Enter your body fat percentage...</label>
-        <input ng-model="bodyFat" type="text">
-      </md-input-container>
-    -->
     </div>
 
     <div class="col-right-spacing" flex>
       <p>Add records to keep track of your progress.  It's common for a new record to be created roughly every 3-4 weeks at minimum.<br/><br/></p>
       <md-whiteframe class="bodyRecord md-whiteframe-1dp"
-                     md-whiteframe="{{height}}"
-                     ng-init="height = 1"
-                     ng-mouseenter="height = 2"
-                     ng-mouseleave="height = 1"
-                     ng-click="addRecord($event)"
+                     ng-repeat="record in recordsArray | orderBy:'updated'"
+                     ng-if="record.name!='baseRecord'"
                      layout="row"
                      layout-align="start center"
                      flex
                      layout-padding>
-        <h3 class="md-body-2">Add Record</h3>
-        <i class="material-icons">keyboard_arrow_right</i>
-      </md-whiteframe>
-      <md-divider id="recordDivider"></md-divider>
-      <md-whiteframe class="bodyRecord md-whiteframe-1dp"
-                     layout="row"
-                     layout-align="start center"
-                     flex
-                     layout-padding>
-        <h3 class="md-body-2">My Second Record</h3>
-        <p class="md-caption">12/29/2016</p>
-      </md-whiteframe>
-      <md-whiteframe class="bodyRecord md-whiteframe-1dp"
-                     layout="row"
-                     layout-align="start center"
-                     flex
-                     layout-padding>
-        <h3 class="md-body-2">My First Record</h3>
-        <p class="md-caption">08/01/2016</p>
+        <h3 class="md-body-2">{{record.name}}</h3>
+        <p class="md-caption">{{record.updated}}</p>
       </md-whiteframe>
     </div>
   </div>
