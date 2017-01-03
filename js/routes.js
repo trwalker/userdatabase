@@ -4,6 +4,7 @@ app.config(['$routeProvider', function ($routeProvider) {
   .when("/home", {templateUrl: "partials/home.html", controller: "AppCtrl"})
   .when("/about", {templateUrl: "partials/about.html", controller: "AppCtrl"})
   .when("/myBody", {templateUrl: "partials/myBody.html", controller: "AppCtrl"})
+  .when("/calculator", {templateUrl: "partials/calculator.html", controller: "AppCtrl"})
   .when("/login", {templateUrl: "partials/login.html", controller: "AppCtrl"})
   .when("/register", {templateUrl: "partials/register.html", controller: "AppCtrl"})
   .when("/profile", {templateUrl: "partials/profile.html", controller: "AppCtrl"})
