@@ -1,6 +1,116 @@
-<div id="contentWrap">
-  <div id="pageHead" layout="row" layout-align="start center">
-    <h1 class="md-title">Nutrition Calculator</h1>
-  </div>
-  <p>Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+<div id="contentWrap" ng-controller="CalculatorController as vm">
+    <div id="pageHead" layout="row" layout-align="start center">
+        <h1 class="md-title">Nutrition Calculator</h1>
+    </div>
+    <md-toolbar ng-show="vm.showError" class="md-warn">
+        <span flex></span>
+        <h2 class="md-toolbar-tools">
+            <span class="md-flex">Please complete all fields</span>
+        </h2>
+    </md-toolbar>
+    <div ng-show="vm.aboutVisible">
+        <div layout="row">
+            <div flex>
+                <h2>About Me</h2>
+            </div>
+        </div>
+        <div layout="row" layout-sm="column" layout-xs="column">
+            <md-input-container flex >
+                <label>Goal</label>
+                <md-select required ng-model="vm.goalSelect">
+                    <md-option value="0">Lose Weight</md-option>
+                    <md-option value="1">Gain Weight</md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container flex>
+                <label>Gender</label>
+                <md-select required ng-model="vm.genderSelect">
+                    <md-option value="0">Male</md-option>
+                    <md-option value="1">Female</md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container flex>
+                <label>Weight</label>
+                <input required ng-model="vm.weightInput" type="number" min="1" max="999">
+            </md-input-container>
+        </div>
+        <div layout="row">
+            <div flex>
+                <md-button class="md-raised md-cornered md-primary" ng-click="vm.aboutContinueClick()">CONTINUE</md-button>
+            </div>
+        </div>
+    </div>
+    <div ng-show="vm.nutritionVisible">
+        <div layout="row">
+            Day One
+        </div>
+        <div layout="row" layout-sm="column" layout-xs="column">
+            <md-input-container flex>
+                <label>Protein</label>
+                <input required ng-model="vm.proteinOneInput" type="number" min="1" max="999">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Carbs</label>
+                <input required ng-model="vm.carbsOneInput" type="number" min="1" max="999">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Fat</label>
+                <input required ng-model="vm.fatOneInput" type="number" min="1" max="999">
+            </md-input-container>
+        </div>
+        <div layout="row">
+            Day Two
+        </div>
+        <div layout="row" layout-sm="column" layout-xs="column">
+            <md-input-container flex>
+                <label>Protein</label>
+                <input required ng-model="vm.proteinTwoInput" type="number" min="1" max="999">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Carbs</label>
+                <input required ng-model="vm.carbsTwoInput" type="number" min="1" max="999">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Fat</label>
+                <input required ng-model="vm.fatTwoInput" type="number" min="1" max="999">
+            </md-input-container>
+        </div>
+        <div layout="row">
+            Day Three
+        </div>
+        <div layout="row" layout-sm="column" layout-xs="column">
+            <md-input-container flex>
+                <label>Protein</label>
+                <input required ng-model="vm.proteinThreeInput" type="number" min="1" max="999">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Carbs</label>
+                <input required ng-model="vm.carbsThreeInput" type="number" min="1" max="999">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Fat</label>
+                <input required ng-model="vm.fatThreeInput" type="number" min="1" max="999">
+            </md-input-container>
+        </div>
+        <div layout="row">
+            <div flex>
+                <md-button class="md-raised md-cornered md-primary" ng-click="vm.nutritionContinueClick()">CONTINUE</md-button>
+            </div>
+        </div>
+    </div>
+    <div ng-show="vm.planVisible">
+        <div layout="row">
+            <div flex><h4>Week</h4></div>
+            <div flex><h4>Protein</h4></div>
+            <div flex><h4>Carbs</h4></div>
+            <div flex><h4>Fat</h4></div>
+        </div>
+        <md-divider></md-divider>
+        <div layout="row" ng-repeat="planItem in vm.plan">
+            <div flex>{{planItem.title}}</div>
+            <div flex>{{planItem.protein}}</div>
+            <div flex>{{planItem.carbs}}</div>
+            <div flex>{{planItem.fat}}</div>
+        </div>
+    </div>
 </div>
